@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 
 namespace PracticeAuth.Models.Entity;
@@ -5,8 +6,15 @@ namespace PracticeAuth.Models.Entity;
 public class User
 {
     public int  Id { get; private set; }
+    
+    [Required]
     public string Name { get; private set; } = null!;
+    
+    [Required]
+    [EmailAddress]
     public string Email { get; private set; } = null!;
+    
+    [Required]
     public string PasswordHash { get; private set; } = null!;
     public DateTime CreatedAt { get; private set; }
     public DateTime? UpdatedAt { get; private set; }
