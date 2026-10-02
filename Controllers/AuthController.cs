@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client.NativeInterop;
 using PracticeAuth.Interfaces;
@@ -40,5 +41,12 @@ public class AuthController : ControllerBase
         }
         return Ok(result?.Data);
         
+    }
+
+    [HttpGet("hello")]
+    [Authorize]
+    public ActionResult Hello()
+    {
+        return Ok("Bolo");
     }
 }
